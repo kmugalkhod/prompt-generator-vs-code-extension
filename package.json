@@ -1,0 +1,73 @@
+{
+  "name": "prompt-generator",
+  "displayName": "prompt-generator",
+  "description": "",
+  "type": "module",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.97.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [],
+  "main": "./out/main.cjs",
+  "contributes": {
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "prompt-sidebar-view",
+          "title": "prompt",
+          "icon": "media/checklist.svg"
+        }
+      ]
+    },
+    "views": {
+      "prompt-sidebar-view": [
+        {
+          "type": "webview",
+          "id": "prompt-sidebar1",
+          "name": "generator",
+          "icon": "media/checklist.svg",
+          "contextualTitle": "VSTodo"
+        }
+      ]
+    },
+    "commands": [
+      {
+        "command": "prompt-generator.helloWorld",
+        "title": "Hello World"
+      }
+    ]
+  },
+  "scripts": {
+    "install:all": "npm install && cd webview && cd fe_promptgenerator && npm install",
+    "dev:webview": "cd webview && cd fe_promptgenerator  && npm run dev",
+    "build:webview": "cd webview && cd fe_promptgenerator  && npm run build",
+    "build": "tsc -b && esbuild ./src/extension.ts --bundle --outfile=out/main.cjs --external:vscode --format=cjs --platform=node --sourcemap=external --loader:.svg=file",
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/mocha": "^10.0.10",
+    "@types/node": "20.x",
+    "@types/vscode": "^1.97.0",
+    "@typescript-eslint/eslint-plugin": "^8.22.0",
+    "@typescript-eslint/parser": "^8.22.0",
+    "@vscode/test-cli": "^0.0.10",
+    "@vscode/test-electron": "^2.4.1",
+    "esbuild": "^0.25.0",
+    "eslint": "^9.19.0",
+    "typescript": "^5.7.3"
+  },
+  "dependencies": {
+    "@langchain/anthropic": "^0.3.15",
+    "@langchain/core": "^0.3.42",
+    "@langchain/openai": "^0.4.4",
+    "all": "^0.0.0"
+  }
+}

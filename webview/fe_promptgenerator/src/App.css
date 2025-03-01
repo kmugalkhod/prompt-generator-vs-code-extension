@@ -1,0 +1,31 @@
+@import "tailwindcss";
+
+:root {
+  /* VS Code theme-aware colors */
+  --vscode-bg: var(--vscode-editor-background);
+  --vscode-fg: var(--vscode-editor-foreground);
+  --vscode-button-bg: var(--vscode-button-background);
+  --vscode-button-hover: var(--vscode-button-hoverBackground);
+  --vscode-input-bg: var(--vscode-input-background);
+  --vscode-input-fg: var(--vscode-input-foreground);
+  --vscode-input-border: var(--vscode-input-border);
+}
+
+/* Custom theme colors */
+.theme-colors {
+  --color-gray-500: var(--vscode-editor-background);
+  --color-white-300: var(--vscode-editor-foreground);
+  --color-orange-200: var(--vscode-textLink-activeForeground);
+}
+
+body {
+  background-color: var(--vscode-editor-background);
+  color: var(--vscode-editor-foreground);
+  min-height: 100vh;
+}
+
+.outerbox {
+  background-color: var(--vscode-editor-background);
+  min-height: 100vh;
+  padding: 1.5rem;
+}
